@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <style>
+    .box {
+      fill: #f5f5f5;
+      stroke: #333;
+      stroke-width: 2;
+      rx: 10;
+      ry: 10;
+    }
+    .mainbox {
+      fill: #e1f5fe;
+      stroke: #0288d1;
+      stroke-width: 3;
+    }
+    .title {
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+    .subtitle {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      text-anchor: middle;
+    }
+    .item {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+    .arrow {
+      stroke: #555;
+      stroke-width: 2;
+      fill: none;
+      marker-end: url(#arrowhead);
+    }
+    .description {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      fill: #555;
+      text-anchor: middle;
+    }
+  </style>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle">GoGo 网络安全扫描工具架构图</text>
+  <text x="600" y="70" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">一个高效的网络资产发现与指纹识别工具</text>
+  
+  <!-- 主结构 -->
+  <rect x="50" y="100" width="1100" height="1000" class="mainbox" fill-opacity="0.2"/>
+  
+  <!-- 入口点 -->
+  <rect x="500" y="120" width="200" height="80" class="box" fill="#e8f5e9"/>
+  <text x="600" y="155" class="title">v2/gogo.go</text>
+  <text x="600" y="180" class="subtitle">程序入口点</text>
+  
+  <!-- 命令解析 -->
+  <rect x="500" y="240" width="200" height="80" class="box" fill="#e8f5e9"/>
+  <text x="600" y="275" class="title">v2/cmd/cmd.go</text>
+  <text x="600" y="300" class="subtitle">命令行解析与处理</text>
+
+  <!-- 核心组件 -->
+  <rect x="200" y="380" width="800" height="300" class="box" fill="#e3f2fd"/>
+  <text x="600" y="410" class="title">v2/core/</text>
+  <text x="600" y="435" class="subtitle">核心扫描组件</text>
+  
+  <text x="250" y="465" class="item">- core.go: 核心扫描逻辑</text>
+  <text x="250" y="490" class="item">- runner.go: 运行器实现</text>
+  <text x="250" y="515" class="item">- generator.go: 目标生成器</text>
+  <text x="250" y="540" class="item">- options.go: 配置选项</text>
+  <text x="250" y="565" class="item">- output.go: 输出处理</text>
+  <text x="250" y="590" class="item">- printer.go: 结果打印</text>
+  <text x="250" y="615" class="item">- init.go: 初始化功能</text>
+  
+  <text x="600" y="640" class="subtitle">扫描模式</text>
+  <text x="480" y="670" class="description">默认扫描 | 智能扫描 | 存活模式</text>
+  
+  <!-- 引擎组件 -->
+  <rect x="200" y="720" width="350" height="340" class="box" fill="#fff8e1"/>
+  <text x="375" y="750" class="title">v2/engine/</text>
+  <text x="375" y="775" class="subtitle">扫描引擎与协议实现</text>
+  
+  <text x="220" y="805" class="item">- Dispatch.go: 协议分发器</text>
+  <text x="220" y="830" class="item">- httpScan.go: HTTP扫描</text>
+  <text x="220" y="855" class="item">- httpFingerScan.go: HTTP指纹识别</text>
+  <text x="220" y="880" class="item">- smbScan.go: SMB协议扫描</text>
+  <text x="220" y="905" class="item">- ms17010Scan.go: MS17-010漏洞扫描</text>
+  <text x="220" y="930" class="item">- icmpScan.go: ICMP存活探测</text>
+  <text x="220" y="955" class="item">- snmpScan.go: SNMP协议扫描</text>
+  <text x="220" y="980" class="item">- socketfingerScan.go: Socket指纹</text>
+  <text x="220" y="1005" class="item">- faviconScan.go: Favicon指纹</text>
+  <text x="220" y="1030" class="item">- ...其他协议扫描模块</text>
+  
+  <!-- 工具包 -->
+  <rect x="650" y="720" width="350" height="340" class="box" fill="#e1bee7"/>
+  <text x="825" y="750" class="title">v2/pkg/</text>
+  <text x="825" y="775" class="subtitle">工具包与辅助功能</text>
+  
+  <text x="670" y="805" class="item">- config.go: 配置管理</text>
+  <text x="670" y="830" class="item">- file.go: 文件操作</text>
+  <text x="670" y="855" class="item">- http.go: HTTP工具</text>
+  <text x="670" y="880" class="item">- result.go: 结果数据结构</text>
+  <text x="670" y="905" class="item">- result_data.go: 结果数据处理</text>
+  <text x="670" y="930" class="item">- socket.go: Socket操作</text>
+  <text x="670" y="955" class="item">- utils.go: 工具函数</text>
+  <text x="670" y="980" class="item">- workflow.go: 工作流处理</text>
+  <text x="670" y="1005" class="item">- templates.go: 模板处理</text>
+  <text x="670" y="1030" class="item">- collect.go: 数据收集</text>
+  
+  <!-- 工具目录 -->
+  <rect x="250" y="1100" width="200" height="70" class="box" fill="#ffcdd2"/>
+  <text x="350" y="1130" class="title">tools/</text>
+  <text x="350" y="1155" class="subtitle">辅助工具脚本</text>
+  
+  <!-- 模板目录 -->
+  <rect x="750" y="1100" width="200" height="70" class="box" fill="#dcedc8"/>
+  <text x="850" y="1130" class="title">v2/templates/</text>
+  <text x="850" y="1155" class="subtitle">扫描模板</text>
+  
+  <!-- 连接线 -->
+  <path d="M 600 200 L 600 240" class="arrow"/>
+  <path d="M 600 320 L 600 380" class="arrow"/>
+  
+  <path d="M 500 530 L 400 720" class="arrow"/>
+  <path d="M 700 530 L 800 720" class="arrow"/>
+  
+  <path d="M 375 1060 L 350 1100" class="arrow"/>
+  <path d="M 825 1060 L 850 1100" class="arrow"/>
+</svg> 
